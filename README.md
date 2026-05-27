@@ -1,50 +1,52 @@
-﻿# A z A tt ac h
+# Az Attach
 
-A z A tt ac h is an Az-Framework FiveM resource.
+Attach Vehicles
 
 [Framework Docs](https://madebyazure.com/framework/) | [Discord Support](https://discord.gg/tBg2U6CTHE)
 
-## Quick Install
+## Status
 
-``cfg
+- Resource: `Az-Attach`
+- Version: `cerulean`
+- Framework: `Az-Framework`
+
+## Install
+
+```cfg
 ensure oxmysql
 ensure ox_lib
 ensure Az-Framework
- Az-Attach
-``
+ensure Az-Attach
+```
 
 <details>
-<summary>What this resource does</summary>
+<summary>Dependencies</summary>
 
-- Uses Az-Framework as the core player, character, money, job, and metadata source.
-- Keeps startup order predictable for large FiveM servers.
-- Keeps configuration local to this resource when a config file is present.
-- Uses the Az support/docs path for setup and troubleshooting.
+- `Az-Framework`
+- `ox_lib`
 
 </details>
 
 <details>
-<summary>Configuration guide</summary>
+<summary>Configuration Guide</summary>
 
-1. Put the resource folder in your server resources folder.
+1. Place the resource in your server resources folder.
 2. Start dependencies before this resource.
 3. Review `config.lua` or `shared/config.lua` when present.
-4. Restart the resource after config changes.
+4. Restart the resource after changing config values.
 
 </details>
 
 <details>
-<summary>Bridge and export notes</summary>
+<summary>Az-Framework Integration</summary>
 
-Use Az-Framework exports for framework-facing logic:
+Use Az-Framework exports for character, money, job, metadata, and inventory bridge behavior.
 
-``lua
+```lua
 local Az = exports['Az-Framework']:GetObject()
 local player = exports['Az-Framework']:GetPlayer(source)
 local snapshot = exports['Az-Framework']:GetBridgePlayerSnapshot(source)
-``
-
-Bridge resources from KSRP-Core are published as Az-Framework compatibility bridges and should be started before legacy resources that expect those framework names.
+```
 
 </details>
 
